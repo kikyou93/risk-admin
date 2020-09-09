@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.zhengjie</groupId>
-    <artifactId>eladmin</artifactId>
+    <groupId>com.zegopay.risk</groupId>
+    <artifactId>risk-admin</artifactId>
     <packaging>pom</packaging>
     <version>2.5</version>
 
     <modules>
-        <module>eladmin-common</module>
-        <module>eladmin-logging</module>
-        <module>eladmin-system</module>
-        <module>eladmin-tools</module>
-        <module>eladmin-generator</module>
+        <module>risk-admin-common</module>
+        <module>risk-admin-logging</module>
+        <module>risk-admin-system</module>
+        <module>risk-admin-tools</module>
+        <module>risk-admin-generator</module>
     </modules>
 
-    <name>EL-ADMIN 后台管理</name>
+    <name>RISK-ADMIN 后台管理</name>
     <url>http://auauz.net</url>
 
     <parent>
