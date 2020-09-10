@@ -77,10 +77,11 @@ public class AuthorizationController {
     public ResponseEntity<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 密码解密
         String password = RsaUtils.decryptByPrivateKey(RsaProperties.privateKey, authUser.getPassword());
+//        String password = "";
         // 查询验证码
         String code = (String) redisUtils.get(authUser.getUuid());
         // 清除验证码
-        redisUtils.del(authUser.getUuid());
+//        redisUtils.del(authUser.getUuid());
         if (StringUtils.isBlank(code)) {
             throw new BadRequestException("验证码不存在或已过期");
         }

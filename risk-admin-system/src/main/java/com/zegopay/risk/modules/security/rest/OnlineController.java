@@ -15,6 +15,7 @@
  */
 package com.zegopay.risk.modules.security.rest;
 
+import com.zegopay.risk.annotation.AnonymousAccess;
 import com.zegopay.risk.modules.security.service.OnlineUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,7 +44,7 @@ public class OnlineController {
 
     @ApiOperation("查询在线用户")
     @GetMapping
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@risk.check()")
     public ResponseEntity<Object> query(String filter, Pageable pageable){
         return new ResponseEntity<>(onlineUserService.getAll(filter, pageable),HttpStatus.OK);
     }
@@ -51,14 +52,14 @@ public class OnlineController {
     @Log("导出数据")
     @ApiOperation("导出数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@risk.check()")
     public void download(HttpServletResponse response, String filter) throws IOException {
         onlineUserService.download(onlineUserService.getAll(filter), response);
     }
 
     @ApiOperation("踢出用户")
     @DeleteMapping
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@risk.check()")
     public ResponseEntity<Object> delete(@RequestBody Set<String> keys) throws Exception {
         for (String key : keys) {
             // 解密Key

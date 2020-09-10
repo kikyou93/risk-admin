@@ -15,6 +15,7 @@
  */
 package com.zegopay.risk.modules.mnt.rest;
 
+import com.zegopay.risk.annotation.AnonymousAccess;
 import com.zegopay.risk.modules.mnt.domain.App;
 import com.zegopay.risk.modules.mnt.service.AppService;
 import com.zegopay.risk.modules.mnt.service.dto.AppQueryCriteria;
@@ -47,7 +48,7 @@ public class AppController {
     @Log("导出应用数据")
     @ApiOperation("导出应用数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('app:list')")
+    @PreAuthorize("@risk.check('app:list')")
     public void download(HttpServletResponse response, AppQueryCriteria criteria) throws IOException {
         appService.download(appService.queryAll(criteria), response);
     }
@@ -55,7 +56,7 @@ public class AppController {
     @Log("查询应用")
     @ApiOperation(value = "查询应用")
     @GetMapping
-	@PreAuthorize("@el.check('app:list')")
+	@PreAuthorize("@risk.check('app:list')")
     public ResponseEntity<Object> query(AppQueryCriteria criteria, Pageable pageable){
         return new ResponseEntity<>(appService.queryAll(criteria,pageable),HttpStatus.OK);
     }
@@ -63,7 +64,7 @@ public class AppController {
     @Log("新增应用")
     @ApiOperation(value = "新增应用")
     @PostMapping
-	@PreAuthorize("@el.check('app:add')")
+	@PreAuthorize("@risk.check('app:add')")
     public ResponseEntity<Object> create(@Validated @RequestBody App resources){
         appService.create(resources);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -72,7 +73,7 @@ public class AppController {
     @Log("修改应用")
     @ApiOperation(value = "修改应用")
     @PutMapping
-	@PreAuthorize("@el.check('app:edit')")
+	@PreAuthorize("@risk.check('app:edit')")
     public ResponseEntity<Object> update(@Validated @RequestBody App resources){
         appService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -81,7 +82,7 @@ public class AppController {
     @Log("删除应用")
     @ApiOperation(value = "删除应用")
 	@DeleteMapping
-	@PreAuthorize("@el.check('app:del')")
+	@PreAuthorize("@risk.check('app:del')")
     public ResponseEntity<Object> delete(@RequestBody Set<Long> ids){
         appService.delete(ids);
         return new ResponseEntity<>(HttpStatus.OK);

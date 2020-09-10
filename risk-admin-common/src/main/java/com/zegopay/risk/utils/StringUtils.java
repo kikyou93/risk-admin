@@ -196,7 +196,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * 根据ip获取详细地址
      */
     public static String getHttpCityInfo(String ip) {
-        String api = String.format(risk-adminConstant.Url.IP_URL, ip);
+        String api = String.format(RiskAdminConstant.Url.IP_URL, ip);
         JSONObject object = JSONUtil.parseObj(HttpUtil.get(api));
         return object.get("addr", String.class);
     }
@@ -214,7 +214,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
             if (address.charAt(address.length() - 1) == symbol) {
                 address = address.substring(0, address.length() - 1);
             }
-            return address.equals(risk-adminConstant.REGION) ? "内网IP" : address;
+            return address.equals(RiskAdminConstant.REGION) ? "内网IP" : address;
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }

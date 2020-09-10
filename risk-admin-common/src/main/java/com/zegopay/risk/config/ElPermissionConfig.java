@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 /**
  * @author Zheng Jie
  */
-@Service(value = "el")
+@Service(value = "risk")
 public class ElPermissionConfig {
 
     public Boolean check(String ...permissions){

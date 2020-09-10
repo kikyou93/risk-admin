@@ -15,7 +15,7 @@
  */
 package com.zegopay.risk.config;
 
-import com.zegopay.risk.utils.risk-adminConstant;
+import com.zegopay.risk.utils.RiskAdminConstant;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -42,9 +42,9 @@ public class FileProperties {
 
     public ElPath getPath(){
         String os = System.getProperty("os.name");
-        if(os.toLowerCase().startsWith(risk-adminConstant.WIN)) {
+        if(os.toLowerCase().startsWith(RiskAdminConstant.WIN)) {
             return windows;
-        } else if(os.toLowerCase().startsWith(risk-adminConstant.MAC)){
+        } else if(os.toLowerCase().startsWith(RiskAdminConstant.MAC)){
             return mac;
         }
         return linux;

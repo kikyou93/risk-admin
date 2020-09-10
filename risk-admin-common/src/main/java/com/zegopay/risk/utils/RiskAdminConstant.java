@@ -21,7 +21,7 @@ package com.zegopay.risk.utils;
  * @author Zheng Jie
  * @date 2018-12-26
  */
-public class risk-adminConstant {
+public class RiskAdminConstant {
 
     /**
      * 用于IP定位转换

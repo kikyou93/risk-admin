@@ -15,17 +15,16 @@
  */
 package com.zegopay.risk.modules.security.config;
 
+import com.zegopay.risk.annotation.AnonymousAccess;
+import com.zegopay.risk.modules.security.config.bean.SecurityProperties;
 import com.zegopay.risk.modules.security.security.JwtAccessDeniedHandler;
 import com.zegopay.risk.modules.security.security.JwtAuthenticationEntryPoint;
 import com.zegopay.risk.modules.security.security.TokenConfigurer;
 import com.zegopay.risk.modules.security.security.TokenProvider;
 import com.zegopay.risk.modules.security.service.OnlineUserService;
 import com.zegopay.risk.modules.security.service.UserCacheClean;
-import lombok.RequiredArgsConstructor;
-import com.zegopay.risk.annotation.AnonymousAccess;
-import com.zegopay.risk.modules.security.config.bean.SecurityProperties;
-import com.zegopay.risk.modules.security.security.*;
 import com.zegopay.risk.utils.enums.RequestMethodEnum;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
