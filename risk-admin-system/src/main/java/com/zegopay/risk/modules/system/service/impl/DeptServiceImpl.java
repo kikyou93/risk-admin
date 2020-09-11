@@ -58,7 +58,8 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public List<DeptDto> queryAll(DeptQueryCriteria criteria, Boolean isQuery) throws Exception {
-        Sort sort = new Sort(Sort.Direction.ASC, "deptSort");
+//        Sort sort = new Sort(Sort.Direction.ASC, List.of("deptSort"));
+        Sort sort = Sort.by("deptSort");
         String dataScopeType = SecurityUtils.getDataScopeType();
         if (isQuery) {
             if(dataScopeType.equals(DataScopeEnum.ALL.getValue())){
